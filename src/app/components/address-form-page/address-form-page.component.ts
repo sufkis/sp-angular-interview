@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AppService } from '../../services/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-address-form-page',
@@ -19,6 +21,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './address-form-page.component.scss'
 })
 export class AddressFormPageComponent {
+  protected appService = inject(AppService);
+  protected router = inject(Router);
+
   cities = [
     { id: '1', name: 'Jerusalem' },
     { id: '2', name: 'Tel Aviv' },
@@ -43,11 +48,15 @@ export class AddressFormPageComponent {
   ];
 
   addressForm = new FormGroup({
-    name: new FormControl(''),
+    username: new FormControl(''),
     city: new FormControl(null)
   });
 
   onFormSubmit() {
-    console.log(this.addressForm.getRawValue())
+    const { username, city } = this.addressForm.getRawValue();
+    if (username?.trim() !== '' && username !== null && city !== null) {
+      this.appService.changeAddress({ username, city });
+      this.router.navigate(['/confirmation']);
+    }
   }
 }

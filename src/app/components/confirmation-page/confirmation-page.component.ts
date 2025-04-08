@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-confirmation-page',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './confirmation-page.component.scss'
 })
 export class ConfirmationPageComponent {
+  protected appService = inject(AppService);
 
+  displayedAddress = computed(() => {
+    return this.appService.address();
+  })
 }
