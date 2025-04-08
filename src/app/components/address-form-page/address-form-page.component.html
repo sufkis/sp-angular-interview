@@ -1,12 +1,12 @@
 <div class="address">
-  <form class="address-form">
+  <form class="address-form" [formGroup]="addressForm" (submit)="onFormSubmit()">
     <mat-form-field>
       <mat-label>Input</mat-label>
-      <input matInput>
+      <input matInput formControlName="name">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Select</mat-label>
-      <mat-select>
+      <mat-select formControlName="city">
         @for (city of cities; track $index) {
           <mat-option [value]="city.name">{{ city.name }}</mat-option>
         }
