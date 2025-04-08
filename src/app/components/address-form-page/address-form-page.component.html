@@ -1,1 +1,17 @@
-<p>address-form-page works!</p>
+<div class="address">
+  <form class="address-form">
+    <mat-form-field>
+      <mat-label>Input</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select</mat-label>
+      <mat-select>
+        @for (city of cities; track $index) {
+          <mat-option [value]="city.name">{{ city.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button type="submit">Basic</button>
+  </form>
+</div>
