@@ -81,5 +81,21 @@
       "name": "Holon"
     }
   ],
-  "submit": []
+  "submit": [
+    {
+      "id": "98bf",
+      "username": "asdad",
+      "city": "Eilat"
+    },
+    {
+      "id": "6de4",
+      "username": "areasdf",
+      "city": "Afula"
+    },
+    {
+      "id": "503e",
+      "username": "asdasd",
+      "city": "Eilat"
+    }
+  ]
 }

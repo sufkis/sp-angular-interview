@@ -33,4 +33,9 @@ export class AppService {
     const response = this.http.get<City[]>(API_URL + '/cities');
     return response;
   }
+
+  sendAddress(address: IAddress): Observable<IAddress> {
+    const response = this.http.post<IAddress>(API_URL + '/submit', address);
+    return response;
+  }
 }
