@@ -11,5 +11,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Run the project with:
 
 `npm start`
+
 It will automatically run the mock server and serve the app.
 
