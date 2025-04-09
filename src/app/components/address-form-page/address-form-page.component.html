@@ -1,8 +1,11 @@
 <div class="address">
   <form class="address-form" [formGroup]="addressForm" (submit)="onFormSubmit()">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" matError="This field is required">
       <mat-label>User Name</mat-label>
       <input matInput formControlName="username">
+      @if (addressForm.controls.username.invalid) {
+        <mat-error>This field is required</mat-error>
+      }
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>City</mat-label>
@@ -11,7 +14,10 @@
           <mat-option [value]="city.name">{{ city.name }}</mat-option>
         }
       </mat-select>
+      @if (addressForm.controls.city.invalid) {
+        <mat-error>This field is required</mat-error>
+      }
     </mat-form-field>
-    <button mat-flat-button color="primary" type="submit">OK</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="addressForm.invalid">OK</button>
   </form>
 </div>

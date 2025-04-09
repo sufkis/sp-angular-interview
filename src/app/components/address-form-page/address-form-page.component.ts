@@ -3,7 +3,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AppService, City } from '../../services/app.service';
 import { Router } from '@angular/router';
 
@@ -27,8 +27,8 @@ export class AddressFormPageComponent implements OnInit {
   cities: City[] = [];
 
   addressForm = new FormGroup({
-    username: new FormControl(''),
-    city: new FormControl(null)
+    username: new FormControl('', [Validators.required]),
+    city: new FormControl(null, [Validators.required])
   });
 
   ngOnInit() {
