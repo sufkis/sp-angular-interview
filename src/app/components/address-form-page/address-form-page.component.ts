@@ -28,7 +28,7 @@ export class AddressFormPageComponent implements OnInit {
 
   addressForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
-    city: new FormControl(null, [Validators.required])
+    city: new FormControl<string | null>(null, [Validators.required])
   });
 
   ngOnInit() {
