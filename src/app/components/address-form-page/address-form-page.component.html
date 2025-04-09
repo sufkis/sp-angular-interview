@@ -1,10 +1,10 @@
 <div class="address">
   <form class="address-form" [formGroup]="addressForm" (submit)="onFormSubmit()">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>User Name</mat-label>
       <input matInput formControlName="username">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>City</mat-label>
       <mat-select formControlName="city">
         @for (city of cities; track $index) {
@@ -12,6 +12,6 @@
         }
       </mat-select>
     </mat-form-field>
-    <button mat-stroked-button type="submit">Basic</button>
+    <button mat-flat-button color="primary" type="submit">OK</button>
   </form>
 </div>
